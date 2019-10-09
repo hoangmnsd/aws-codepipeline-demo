@@ -4,6 +4,10 @@ files:
   - source: /
     destination: /var/www/html/pwebsite #where to store the artifacts
 hooks:
+  ApplicationStop:
+    - location: /bin/stop.sh  #stop script for the website
+      timeout: 300
+      runas: ec2-user
   ApplicationStart:
     - location: /bin/start.sh #start script for the website
       timeout: 300
